@@ -1,0 +1,331 @@
+:root {
+    /* Design Tokens - Billion Dollar Startup Aesthetic */
+    --primary: #0066ff;
+    --primary-gradient: linear-gradient(135deg, #0066ff 0%, #7000ff 100%);
+    --bg-dark: #000000;
+    --bg-card: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1a6;
+    --border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-heavy: rgba(255, 255, 255, 0.08);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-xl: 40px;
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-premium: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 1. Navigation - Apple/Linear Style */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+}
+
+.logo svg {
+    width: 28px;
+    height: 28px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+/* 2. Hero Section - Premium Branding */
+.hero {
+    padding: 160px 0 100px;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 84px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 24px;
+    background: linear-gradient(to bottom, #fff 40%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 48px;
+}
+
+/* 3. Upload Area - Startup Polish */
+.upload-zone {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: var(--transition);
+}
+
+.upload-zone:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.upload-inner {
+    background: var(--bg-card);
+    border-radius: calc(var(--radius-lg) - 4px);
+    padding: 80px 40px;
+    border: 1px dashed var(--border);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.upload-inner svg {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(0,102,255,0.4));
+}
+
+.upload-inner h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.upload-inner p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* 4. Tool Cards - Linear/Vercel Aesthetic */
+.section-title {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 80px;
+}
+
+.tool-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    background: var(--glass-heavy);
+    border-color: var(--primary);
+    transform: translateY(-8px);
+}
+
+.tool-card svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 24px;
+    color: var(--primary);
+}
+
+.tool-card h3 {
+    margin-bottom: 12px;
+    color: white;
+}
+
+.tool-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* 5. Blog/SEO Cards */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    margin-top: 64px;
+}
+
+.blog-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.blog-img {
+    height: 200px;
+    background: linear-gradient(45deg, #1a1a1a, #0a0a0a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-content {
+    padding: 24px;
+}
+
+/* 6. Ad Areas */
+.ad-slot {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ad-h { width: 728px; height: 90px; }
+.ad-m { width: 100%; max-width: 970px; height: 250px; }
+
+/* 7. Footer */
+footer {
+    padding: 100px 0 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 120px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 64px;
+}
+
+.footer-col h4 {
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: white;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .hero h1 { font-size: 48px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .ad-h { width: 100%; height: 100px; }
+}
